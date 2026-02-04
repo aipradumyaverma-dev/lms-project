@@ -8,7 +8,6 @@ import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
 import AuthWrapper1 from '../AuthWrapper1';
 import AuthCardWrapper from '../AuthCardWrapper';
 import AuthLogin from '../auth-forms/AuthLogin';
-import Logo from 'ui-component/Logo';
 import AuthFooter from 'ui-component/cards/AuthFooter';
 
 // assets
@@ -28,17 +27,43 @@ const Login = () => {
               <AuthCardWrapper>
                 <Grid container spacing={2} alignItems="center" justifyContent="center">
                   <Grid item sx={{ mb: 3 }}>
-                    <Link to="#">{/* <Logo /> */}</Link>
+                    <Link to="#">
+                      <img
+                        alt="LMS Logo"
+                        src="/Screenshot.png"
+                        style={{
+                          height: '80px',
+                          width: '100px',
+                          display: 'block',
+                          margin: '0 auto'
+                        }}
+                      />
+                    </Link>
                   </Grid>
                   <Grid item xs={12}>
                     <Grid container direction={matchDownSM ? 'column-reverse' : 'row'} alignItems="center" justifyContent="center">
                       <Grid item>
                         <Stack alignItems="center" justifyContent="center" spacing={1}>
-                          <Typography color={theme.palette.secondary.main} gutterBottom variant={matchDownSM ? 'h3' : 'h2'}>
-                            Hi, Welcome Back
+                          <Typography
+                            color={theme.palette.secondary.main}
+                            gutterBottom
+                            variant={matchDownSM ? 'h3' : 'h2'}
+                            sx={{
+                              fontWeight: 700,
+                              background: 'linear-gradient(90deg, #6a1b9a 0%, #8e24aa 100%)',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent'
+                            }}
+                          >
+                            Welcome Back!
                           </Typography>
-                          <Typography variant="caption" fontSize="16px" textAlign={matchDownSM ? 'center' : 'inherit'}>
-                            Enter your credentials to continue
+                          <Typography
+                            variant="caption"
+                            fontSize="16px"
+                            textAlign={matchDownSM ? 'center' : 'inherit'}
+                            sx={{ color: 'text.secondary', mb: 2 }}
+                          >
+                            Login to Library Management System
                           </Typography>
                         </Stack>
                       </Grid>
@@ -48,12 +73,19 @@ const Login = () => {
                     <AuthLogin />
                   </Grid>
                   <Grid item xs={12}>
-                    <Divider />
+                    <Divider sx={{ my: 1 }} />
                   </Grid>
                   <Grid item xs={12}>
                     <Grid item container direction="column" alignItems="center" xs={12}>
-                      <Typography component={Link} to="/pages/register/register3" variant="subtitle1" sx={{ textDecoration: 'none' }}>
-                        Don&apos;t have an account?
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: 'text.secondary',
+                          textAlign: 'center',
+                          mt: 1
+                        }}
+                      >
+                        Default Credentials: admin@gmail.com / 12345
                       </Typography>
                     </Grid>
                   </Grid>

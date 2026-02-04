@@ -1,22 +1,17 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material/styles';
 import {
   Box,
   Button,
   Checkbox,
-  Divider,
   FormControl,
   FormControlLabel,
   FormHelperText,
-  Grid,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  Stack,
-  Typography,
-  useMediaQuery
+  Stack
 } from '@mui/material';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -24,7 +19,6 @@ import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import Google from 'assets/images/icons/social-google.svg';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -32,8 +26,6 @@ import { useNavigate } from 'react-router-dom';
 const FirebaseLogin = ({ ...others }) => {
   const theme = useTheme();
   const scriptedRef = useScriptRef();
-  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector((state) => state.customization);
   const [checked, setChecked] = useState(true);
   const navigation = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -49,8 +41,8 @@ const FirebaseLogin = ({ ...others }) => {
     <>
       <Formik
         initialValues={{
-          email: '',
-          password: '',
+          email: 'admin@gmail.com',
+          password: '12345',
           submit: null
         }}
         validationSchema={Yup.object().shape({
@@ -64,15 +56,15 @@ const FirebaseLogin = ({ ...others }) => {
             if (response?.status === 200) {
               console.log('Response:', response?.data?.message);
 
-              // if (response?.data?.message === 'Password Not Match') {
-              //   toast.warn('Enter Correct Password');
-              // } else if (response?.data?.message === 'not found') {
-              //   toast.error('User not Found');
-              // } else if (response?.data?.userToken) {
-              //   toast.success('Login Successfully');
-              //   const loginToken = response?.data?.userToken;
-              //   localStorage.setItem('loginToken', loginToken);
-              // }
+              if (response?.data?.message === 'Password Not Match') {
+                toast.warn('Enter Correct Password');
+              } else if (response?.data?.message === 'not found') {
+                toast.error('User not Found');
+              } else if (response?.data?.userToken) {
+                toast.success('Login Successfully');
+                const loginToken = response?.data?.userToken;
+                localStorage.setItem('loginToken', loginToken);
+              }
 
               const loginToken = response?.data?.payload._id;
               localStorage.setItem('loginToken', loginToken);
