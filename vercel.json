@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "buildCommand": "cd lmsfe && npm install && npm run build",
+    "outputDirectory": "lmsfe/build",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
