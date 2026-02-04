@@ -234,7 +234,7 @@ const EmailTemplates = () => {
   console.log(`allBookAllotmentData`, allBookAllotmentData);
 
   return (
-    <Container>
+    <Container maxWidth={false}>
       <Box
         sx={{
           backgroundColor: 'white',
@@ -310,7 +310,7 @@ const EmailTemplates = () => {
           Loading...
         </Typography>
       ) : allBookAllotmentData.length > 0 ? (
-        <Card style={{ height: '600px', paddingTop: '15px', marginTop: '30px' }}>
+        <Card style={{ height: 'calc(100vh - 210px)', paddingTop: '15px', marginTop: '30px' }}>
           <DataGrid
             rows={allBookAllotmentData}
             columns={columns}

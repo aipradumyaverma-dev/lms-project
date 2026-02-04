@@ -120,8 +120,7 @@ const View = () => {
           boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
           height: '50px',
           marginBottom: '-10px',
-          width: '73%',
-          marginLeft: '5%'
+          width: '100%',
         }}
       >
         <Breadcrumbs aria-label="breadcrumb">
@@ -133,7 +132,7 @@ const View = () => {
           </Link>
         </Breadcrumbs>
       </Box>
-      <Container>
+      <Container maxWidth={false}>
         <Paper
           elevation={3}
           sx={{
@@ -141,12 +140,11 @@ const View = () => {
             flexDirection: 'column',
             alignItems: 'center',
             padding: '20px',
-            maxWidth: '800px',
+            width: '100%',
             margin: 'auto',
             boxShadow: 3,
             borderRadius: '10px',
             marginTop: '30px',
-            marginLeft: '30px'
           }}
         >
           <Avatar src={formData.logo ? formData.logo : 'profile.logoUrl'} alt="Profile" sx={{ width: 100, height: 100, mb: 2 }} />

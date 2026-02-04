@@ -214,7 +214,7 @@ const FinePerDay = () => {
     // toast.success('Book submitted successfully');
   };
   return (
-    <Container>
+    <Container maxWidth={false}>
       <Box
         sx={{
           backgroundColor: 'white',
@@ -253,7 +253,7 @@ const FinePerDay = () => {
       </Box>
       <TableStyle>
         <Box width="100%">
-          <Card style={{ height: '600px', paddingTop: '15px' }}>
+          <Card style={{ height: 'calc(100vh - 210px)', paddingTop: '15px' }}>
             <DataGrid
               rows={data}
               columns={columns}

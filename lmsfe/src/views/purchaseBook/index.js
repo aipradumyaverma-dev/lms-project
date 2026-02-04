@@ -178,7 +178,7 @@ const PurchaseBook = () => {
   return (
     <>
       <AddPurchaseBook open={openAdd} fetchData={fetchData} handleClose={handleCloseAdd} />
-      <Container>
+      <Container maxWidth={false}>
         <Box
           sx={{
             backgroundColor: 'white',
@@ -211,7 +211,7 @@ const PurchaseBook = () => {
         <Stack direction="row" alignItems="center" mb={5} justifyContent={'space-between'}></Stack>
         <TableStyle>
           <Box width="100%">
-            <Card style={{ height: '600px', paddingTop: '15px' }}>
+            <Card style={{ height: 'calc(100vh - 210px)', paddingTop: '15px' }}>
               <DataGrid
                 rows={data}
                 columns={columns}

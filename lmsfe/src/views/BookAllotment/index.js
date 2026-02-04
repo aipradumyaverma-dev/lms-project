@@ -188,7 +188,7 @@ const Allotment = () => {
   return (
     <>
       <AddLead open={openAdd} fetchData={fetchData} handleClose={handleCloseAdd} />
-      <Container>
+      <Container maxWidth={false}>
         <Box
           sx={{
             backgroundColor: 'white',
@@ -224,7 +224,7 @@ const Allotment = () => {
 
         <TableStyle>
           <Box width="100%">
-            <Card style={{ height: '600px', paddingTop: '15px' }}>
+            <Card style={{ height: 'calc(100vh - 210px)', paddingTop: '15px' }}>
               <DataGrid
                 rows={data}
                 columns={columns}

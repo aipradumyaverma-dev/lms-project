@@ -232,7 +232,7 @@ const Call = () => {
       const worksheet = workbook.Sheets[sheetName];
       const data = XLSX.utils.sheet_to_json(worksheet);
       setExcelData(data);
-      
+
     };
     reader.readAsBinaryString(file);
   };
@@ -241,9 +241,9 @@ const Call = () => {
       console.log('excelData>>>>>>>>', excelData);
       const response = await axios.post('http://64.227.130.216:4300/user/registerMany', excelData);
       toast.success(`upload Successfully`)
-      setTimeout(()=>{
+      setTimeout(() => {
         window.location.reload()
-      },1000)
+      }, 1000)
     } catch (error) {
       console.error('Error uploading data:', error);
       alert('Error uploading data');
@@ -252,7 +252,7 @@ const Call = () => {
   return (
     <>
       <AddRegister open={openAdd} fetchData={fetchData} handleClose={handleCloseAdd} />
-      <Container>
+      <Container maxWidth={false}>
         <Box
           sx={{
             backgroundColor: 'white',
@@ -298,7 +298,7 @@ const Call = () => {
         <Stack direction="row" alignItems="center" mb={5} justifyContent={'space-between'}></Stack>
         <TableStyle>
           <Box width="100%">
-            <Card style={{ height: '600px', paddingTop: '15px' }}>
+            <Card style={{ height: 'calc(100vh - 210px)', paddingTop: '15px' }}>
               <DataGrid
                 rows={data}
                 columns={columns}

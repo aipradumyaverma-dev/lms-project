@@ -129,7 +129,7 @@ const Lead = () => {
   return (
     <>
       <AddLead open={openAdd} handleClose={handleCloseAdd} />
-      <Container>
+      <Container maxWidth={false}>
         <Stack direction="row" alignItems="center" mb={5} justifyContent={'space-between'}>
           <Typography variant="h4">Books Management</Typography>
           <Stack direction="row" alignItems="center" justifyContent={'flex-end'} spacing={2}>
@@ -140,7 +140,7 @@ const Lead = () => {
         </Stack>
         <TableStyle>
           <Box width="100%">
-            <Card style={{ height: '600px', paddingTop: '15px' }}>
+            <Card style={{ height: 'calc(100vh - 210px)', paddingTop: '15px' }}>
               <DataGrid
                 rows={data}
                 columns={columns}
